@@ -1,10 +1,9 @@
-# .buildkite/pipeline.yml
+env:
+  SONARQUBE_LOGIN: "abee852d0588108a9c56adcfaf46618b8b76b126"
+
 steps:
+  - label: Example Test
+    command: echo "Hello!"
+
   - label: ":sonarqube: Sonarqube"
-    branches: "master" # only report on the master branch
-    plugins:
-      - ssh://git@github.com/wayfair-contribs/sonarscanner-buildkite-plugin.git#v0.1.0:
-          sonarqube_host: https://sonarcloud.io
-          project_key: jbarejka_hello-world
-    soft_fail: # Ensures a Sonarqube error does not fail the pipeline
-      - exit_status: "*"
+    command: .buildkite/run-sonar.sh
