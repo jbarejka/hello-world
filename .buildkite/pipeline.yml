@@ -1,11 +1,3 @@
 steps:
-<<<<<<< HEAD
-=======
-  - label: Build
-    commands:
-      - mkdir target
-      - javac *.java -d target
-
->>>>>>> javac into pipeline
   - label: ":sonarqube: Sonarqube"
     command: .buildkite/run-sonar.sh
