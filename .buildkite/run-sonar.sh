@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "RUN SONAR"
-
 export SONAR_SCANNER_VERSION=4.2.0.1873
 export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-macosx
 rm -rf $SONAR_SCANNER_HOME
