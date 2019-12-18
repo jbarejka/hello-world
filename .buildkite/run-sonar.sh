@@ -10,6 +10,21 @@ rm $HOME/.sonar/sonar-scanner.zip
 export PATH=$SONAR_SCANNER_HOME/bin:$PATH
 export SONAR_SCANNER_OPTS="-server"
 
+
+
+if [ "$BUILDKITE_PULL_REQUEST" != "false" ]; then
+    sonar-scanner \
+      -Dsonar.projectKey=jbarejka_hello-world \
+      -Dsonar.organization=jbarejka \
+      -Dsonar.sources=. \
+      -Dsonar.host.url=https://sonarcloud.io \
+      -Dsonar.login=a7c965e8ddc1bfce932e112d0b05c49c9a8a7388 \
+      -Dsonar.pullrequest.key=$BUILDKITE_PULL_REQUEST \
+      -Dsonar.pullrequest.branch=$BUILDKITE_BRANCH
+    exit 0
+fi
+
+
 sonar-scanner \
   -Dsonar.projectKey=jbarejka_hello-world \
   -Dsonar.organization=jbarejka \
