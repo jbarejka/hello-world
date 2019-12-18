@@ -1,6 +1,3 @@
 steps:
-  - label: Example Test
-    command: echo "Hello!"
-
   - label: ":sonarqube: Sonarqube"
     command: .buildkite/run-sonar.sh
